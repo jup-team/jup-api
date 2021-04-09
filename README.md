@@ -35,3 +35,4 @@ if you add a new lib, follow the steps:
 or
 
 `docker-compose exec app flake8`
+
