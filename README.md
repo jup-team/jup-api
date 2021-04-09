@@ -26,3 +26,4 @@ I added by default some variables for db, you can go with it. But also you can c
 if you add a new lib, follow the steps:
   1. add the lib in requirements.txt
   2. run `docker-compose run --build`
+  3. commit the new lib added commenting about it
