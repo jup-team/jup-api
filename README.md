@@ -5,7 +5,7 @@ The configuration below is a step-by-step to set your dev env running the jup ap
 
 
 ### docker-compose to build the containers and configurations
-`docker-compose up --build`
+`docker-compose build`
 
 ### creating super user
 `sudo docker-compose run app sh -c "python3 manage.py createsuperuser"`
@@ -23,6 +23,6 @@ I added by default some variables for db, you can go with it. But also you can c
 
 ### adding new libs
 
-If you add a lib to the project, remember to run the command:
-
-`pip freeze > requirementes.txt`
+if you add a new lib, follow the steps:
+  1. add the lib in requirements.txt
+  2. run `docker-compose run --build`
