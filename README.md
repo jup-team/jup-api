@@ -3,7 +3,6 @@
 ## up and running the project locally
 The configuration below is a step-by-step to set your dev env running the jup api connected to a postgres.
 
-
 ### docker-compose to build the containers and configurations
 `docker-compose build`
 
