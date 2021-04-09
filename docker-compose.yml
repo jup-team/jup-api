@@ -11,18 +11,13 @@ services:
     command: >
       sh -c "python3 manage.py migrate &&
              python3 manage.py runserver 0.0.0.0:8000"
-    environment:
-      - DB_HOST=db
-      - DB_NAME=app
-      - DB_USER=postgres
-      - DB_PASS=supersecretpassword
+    env_file:
+      - ./.env.dev
     depends_on:
       - db
   db:
     image: postgres:10-alpine
-    environment:
-      - POSTGRES_DB=app
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=supersecretpassword
+    env_file:
+      - ./.env.dev
     ports:
     - "5432:5432"
