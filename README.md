@@ -8,14 +8,14 @@ The configuration below is a step-by-step to set your dev env running the jup ap
 `docker-compose build`
 
 ### creating super user
-`docker-compose run app sh -c "python3 manage.py createsuperuser"`
+`docker-compose run app "python3 manage.py createsuperuser"`
 
 
 ### creating new apps in the project
 
 suppose you want to create a /candidates app in the project:
 
-`docker-compose run app sh -c "django-admin startapp candidates"`
+`docker-compose run app "django-admin startapp candidates"`
 
 ### the .env.dev file
 
