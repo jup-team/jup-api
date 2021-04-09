@@ -8,14 +8,14 @@ The configuration below is a step-by-step to set your dev env running the jup ap
 `docker-compose build`
 
 ### creating super user
-`sudo docker-compose run app sh -c "python3 manage.py createsuperuser"`
+`docker-compose run app sh -c "python3 manage.py createsuperuser"`
 
 
 ### creating new apps in the project
 
 suppose you want to create a /candidates app in the project:
 
-`sudo docker-compose run app sh -c "django-admin startapp candidates"`
+`docker-compose run app sh -c "django-admin startapp candidates"`
 
 ### the .env.dev file
 
@@ -27,3 +27,7 @@ if you add a new lib, follow the steps:
   1. add the lib in requirements.txt
   2. run `docker-compose run --build`
   3. commit the new lib added commenting about it
+
+### running flake8 form Syte Guide
+
+`docker-compose run app "flake8"`
