@@ -8,4 +8,5 @@ class SkillsAdmin(admin.ModelAdmin):
     search_fields = ['title']
     list_per_page = 20
 
+
 admin.site.register(Skill, SkillsAdmin)

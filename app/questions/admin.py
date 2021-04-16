@@ -8,4 +8,5 @@ class QuestionsAdmin(admin.ModelAdmin):
     search_fields = ['skill', 'level', 'statement']
     list_per_page = 10
 
+
 admin.site.register(Question, QuestionsAdmin)
