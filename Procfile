@@ -1,0 +1,1 @@
+web: gunicorn jup-api.wsgi --log-file-
