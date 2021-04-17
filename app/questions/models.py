@@ -18,9 +18,9 @@ class Question(models.Model):
         (2, 'Intermediário'),
         (3, 'Avançado'),
     )
-    statement = models.TextField(blank=False, null=False)
-    option_a = models.TextField(null=False)
-    option_b = models.TextField(null=False)
+    statement = models.TextField()
+    option_a = models.TextField()
+    option_b = models.TextField()
     option_c = models.TextField(blank=True, null=True)
     option_d = models.TextField(blank=True, null=True)
     option_e = models.TextField(blank=True, null=True)
