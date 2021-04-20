@@ -28,3 +28,12 @@ jobs:
     #- name: Lint with PyLint
     #  run: |
     #    python lint.py --path ./src --threshold 2
+    - name: Deploy Heroku
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.0.0
+      with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "jup-api-dev"
+          heroku_email: "dineresc@gmail.com"
+          usedocker: true
+    
