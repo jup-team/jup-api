@@ -38,4 +38,3 @@ jobs:
           heroku_app_name: "jup-api-dev"
           heroku_email: "dineresc@gmail.com"
           remote_branch: "main"
-    
