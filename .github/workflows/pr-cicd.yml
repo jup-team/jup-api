@@ -27,16 +27,15 @@ jobs:
       run: |
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=250 --statistics
-
-    - name: Heroku Django Deploy
-      # You may pin to the exact commit or the version.
-      # uses: nyakaz73/heroku-django-deploy@f0e67aecb5fe9315a722637d4af3312f388ea8ef
-      uses: nyakaz73/heroku-django-deploy@v0.53
-      with:
-        # Heroku app name
-        heroku_app_name: jup-api-dev
-        # Heroku api key
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        # Heroku email address
-        heroku_email_address: dineresc@gmail.com
-        remote_branch: "main"
+        
+  heroku-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: jup-api-dev
+          heroku_email: dineresc@gmail.com
