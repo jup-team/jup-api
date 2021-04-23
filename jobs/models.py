@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Position(models.Model):
@@ -8,7 +9,7 @@ class Position(models.Model):
 
 class Job(models.Model):
 
-    SENIORITY = (
+    SENIORITIES = (
         ('ESTAGIARIO', 'Estagiário'),
         ('JUNIOR', 'Júnior'),
         ('PLENO', 'Pleno'),
@@ -26,13 +27,13 @@ class Job(models.Model):
         ('CLT', 'CLT')
     )
 
-    seniority = models.CharField(choices=OPTIONS, default='PLENO')
+    seniority = models.CharField(choices=SENIORITIES, default='PLENO', max_length=25)
     position = models.ForeignKey(Position, on_delete=models.PROTECT)
     description = models.TextField(max_length=500)
-    location = CharField()
+    location = models.CharField(max_length=30)
     owner = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
-    status = models.CharField(choices=STATUS, default='CRIADA') 
-    contract_type = models.CharField(choices=CONTRACTS)
+    status = models.CharField(choices=STATUS, default='CRIADA', max_length=20) 
+    contract_type = models.CharField(choices=CONTRACTS, max_length=15)
     start_pub = models.DateField()
     end_pub = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
