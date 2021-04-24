@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Position, Job
-from users.serializers import UserSerializer
+from users.serializers import UserSimpleSerializer
 
 
 class PositionSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class PositionSerializer(serializers.ModelSerializer):
 
 
 class JobCardSerializer(serializers.ModelSerializer):
-    owner = UserSerializer()
+    owner = UserSimpleSerializer()
 
     class Meta:
         model = Job
