@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Position
+from .models import Position, Job
+
+
 class PositionAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
@@ -8,3 +10,4 @@ class PositionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Position, PositionAdmin)
+admin.site.register(Job)
