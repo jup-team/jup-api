@@ -85,6 +85,23 @@ DATABASES = {
     }
 }
 
+
+AUTH_USER_MODEL = 'users.User'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'users.authentication.JWTCustomAuthentication',
+    ),
+}
+
+
+SECRET_JWT = os.environ.get('SECRET_JWT', 'secret_for_jwt')
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
