@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vnq+s2@wd4of+2pz$apa=^fu-k%av#lacbicsht!x^+=49aqpv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jup-api-dev.herokuapp.com']
+ALLOWED_HOSTS = ['jup-api-dev.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -83,6 +83,23 @@ DATABASES = {
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
     }
 }
+
+
+AUTH_USER_MODEL = 'users.User'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'users.authentication.JWTCustomAuthentication',
+    ),
+}
+
+
+SECRET_JWT = os.environ.get('SECRET_JWT', 'secret_for_jwt')
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
