@@ -1,8 +1,16 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, mixins
 from rest_framework.response import Response
-from .models import Job
-from .serializers import JobCardSerializer, JobDetailSerializer
+from .models import Job, Position
+from .serializers import JobCardSerializer, JobDetailSerializer, PositionSerializer
 from .utils import check_user_owner
+
+
+class PositionViewSet(mixins.RetrieveModelMixin,
+                      mixins.ListModelMixin,
+                      mixins.CreateModelMixin,
+                      viewsets.GenericViewSet):
+    queryset = Position.objects.all()
+    serializer_class = PositionSerializer
 
 
 class JobsViewSet(viewsets.ViewSet):
