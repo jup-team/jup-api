@@ -6,6 +6,7 @@ from users.models import User
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.CharField()
     type_user = serializers.CharField()
+    first_name = serializers.CharField()
 
     class Meta:
         model = User
