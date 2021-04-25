@@ -9,3 +9,11 @@ class JobsViewSet(viewsets.ViewSet):
         jobs = Job.objects.all()
         serializer = JobCardSerializer(jobs, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = JobDetailSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
