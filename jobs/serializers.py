@@ -29,9 +29,12 @@ class JobCardSerializer(serializers.ModelSerializer):
 
 
 class JobDetailSerializer(serializers.ModelSerializer):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+
     def validate(self, attrs):
-        request = self.context.get("request")
-        if not check_user_owner(request):
+        if self.user.id != attrs.get('owner').id:
             raise serializers.ValidationError("user authenticated is not the owner of the job")
         return attrs
 

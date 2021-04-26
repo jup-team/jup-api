@@ -20,7 +20,7 @@ class JobsViewSet(viewsets.ViewSet):
 
     def post(self, request):
         serializer = JobDetailSerializer(data=request.data,
-                                         context={'request': request})
+                                         user=request.user)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(data=serializer.data, status=status.HTTP_201_CREATED)
