@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Position, Job
 from users.serializers import UserSimpleSerializer
-from .utils import check_user_owner
 
 
 class PositionSerializer(serializers.ModelSerializer):
