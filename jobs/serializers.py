@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Position, Job
 from users.serializers import UserSimpleSerializer
+from .utils import check_user_owner
 
 
 class PositionSerializer(serializers.ModelSerializer):
@@ -28,6 +29,12 @@ class JobCardSerializer(serializers.ModelSerializer):
 
 
 class JobDetailSerializer(serializers.ModelSerializer):
+    def validate(self, attrs):
+        request = self.context.get("request")
+        if not check_user_owner(request):
+            raise serializers.ValidationError("user authenticated is not the owner of the job")
+        return attrs
+
     class Meta:
         model = Job
         fields = '__all__'
