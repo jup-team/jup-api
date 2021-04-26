@@ -17,7 +17,9 @@ class Job(models.Model):
     )
 
     STATUS = (
-        ('CRIADA', 'Criada'),
+        ('EM_ANALISE', 'Em análise'),
+        ('REPROVADA', 'Reprovada'),
+        ('APROVADA', 'Aprovada'),
         ('EM_ANDAMENTO', 'Em andamento'),
         ('ENCERRADA', 'Encerrada'),
     )
