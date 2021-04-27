@@ -24,3 +24,6 @@ sqlparse==0.4.1
 toml==0.10.2
 wrapt==1.12.1
 pyjwt==1.7.1
+pytest-cov==2.9.0
+pytest-django==3.9.0
+factory-boy==2.12.0
