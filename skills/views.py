@@ -3,8 +3,7 @@ from .models import Skill
 from .serializers import SkillSerializer
 
 
-class SkillsViewSet(mixins.RetrieveModelMixin,
-                    mixins.ListModelMixin,
-                    viewsets.GenericViewSet):
+class SkillsViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+    http_method_names = ['get']
