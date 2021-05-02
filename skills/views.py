@@ -11,5 +11,5 @@ class SkillsViewSet(viewsets.ModelViewSet):
     http_method_names = ['get']
 
     @method_decorator(cache_page(3600))
-    def dispatch(self, request, *args, **kwargs):
+    def dispatch(self, *args, **kwargs):
         return super(SkillsViewSet, self).dispatch(*args, **kwargs)
